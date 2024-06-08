@@ -1,0 +1,44 @@
+Q1 => You have two stack and 1,2,3,4,5 values and you have pushed all these values to S1 (in the order
+1,2,3,4,5) and then you took 2 elements from top and inserted into S2 , then pop 1 element from S1
+and then take top of S2 and insert into S1. What is the second top element in S1.
+
+Ans => 2
+
+Q2 => Remove kth element from top in a given stack.
+Ans=>
+void removeKthElement(int k, stack<int>& st) {
+    stack<int> st2;
+    k--; // Adjust k to be zero-indexed
+    while (k--) {
+        st2.push(st.top()); // Move top k-1 elements from st to st2
+        st.pop();
+    }
+    st.pop(); // Remove the k-th element
+    while (!st2.empty()) {
+        st.push(st2.top()); // Move elements back to st from st2
+        st2.pop();
+    }
+}
+
+Q=> 3 what does this function does?
+void fun(int n) {
+    stack<int> s;
+    while (n > 0) {
+        s.push(n % 2); // Push remainder of n/2 to stack
+        n = n / 2;    // Update n to n/2
+    }
+    while (!s.empty()) {
+        cout << s.top(); // Print binary digits from stack
+        s.pop();
+    }
+}
+
+Ans 3 = > Option 2: Prints binary representation of n.
+
+Q4 => Which of the following statement(s) about stack data structure is/are NOT correct?
+1->Stack data structure can be implemented using linked list
+2->New node can only be added at the top of the stack
+3->Stack is the FIFO data structure
+4->Adding an element to a filled stack leads to underflow condition.
+Ans 4=>3,4 
+
